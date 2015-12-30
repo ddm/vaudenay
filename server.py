@@ -30,7 +30,7 @@ def handle_api():
     plaintext = decryptor.update(ct) + decryptor.finalize()
 
     unpadder = padding.PKCS7(128).unpadder()
-    unpadder.update(plaintext) + unpadder.finalize()
+    message = unpadder.update(plaintext) + unpadder.finalize()
 
     return 'Thanks!'
 
